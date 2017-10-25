@@ -1,0 +1,132 @@
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+%
+%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+
+\documentclass[letterpaper,11pt]{article}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{tocloft}
+\usepackage{etoolbox}
+\robustify\cftdotfill
+
+
+%-----------------------------------------------------------
+%Edit these values as you see fit
+
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+
+
+%-----------------------------------------------------------
+%Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{\vspace{8pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-5pt}
+}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+%-----------------------------------------------------------
+
+
+\begin{document}
+
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+\textbf{\Large Tim Etchells} & \textbf{\today} \\
+Software Developer & tetchel@gmail.com \\
+https://github.com/tetchel & https://www.linkedin.com/in/tim-etchells-a235b513b/ \\
+\end{tabular*}
+\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{EDUCATION}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+\item
+
+	\ressubheading{Western University}{London, ON}{B.Sc. Honors Specialization Computer Science}{Expected graduation April 2018}
+
+	\begin{itemize}
+        
+        \resitem{Minor Software Engineering}
+        \resitem{3.9 GPA in Computer Science and Math courses}
+        \resitem{Dean's Honor List last two years of study}
+
+	\end{itemize}
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{WORK EXPERIENCE}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+\item
+	\ressubheading{IBM - WebSphere Developer Tools}{Toronto, ON}{Software Developer}{May - August 2015, May 2016 - August 2017}
+	\begin{itemize}
+        \resitem{Developed an Eclipse plugin in Java providing development tools for WebSphere}
+        \resitem{Designed and implemented a continuous-integration build solution for IBM's OpenLibertyTools - https://github.com/OpenLiberty/open-liberty-tools}
+        \resitem{Documented and programmed defect fixes, usability improvements and feature enhancements in both product and build code}
+        \resitem{Automated, improved, and wrote test cases using JUnit and Eclipse's SWTBot}
+	\end{itemize}
+
+\item
+
+	\ressubheading{Sunnybrook Hospital}{Toronto, ON}{Technical Support Analyst}{June - August 2014}
+	\begin{itemize}
+       \resitem{Answered and resolved tech support calls that could not be resolved over the phone}
+       \resitem{Dealt directly with clients to resolve both software and hardware issues on varied platforms}
+    \end{itemize}
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{SKILLS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+\item {\bf Development:} Extensive Java experience, skilled in Python, Bash, C\#, Intermediate JavaScript, HTML/CSS, C, C++. Skilled in object-oriented design and implementation across these languages, and comfortable with functional paradigms as well. 
+
+\item {\bf Release Engineering:} Experienced in managing version control and build tools for large projects using Git and GitHub, Ant, Gradle, and Maven.
+
+\item {\bf Testing and QA:} 
+
+\item {\bf Task Automation:} Skilled in writing and maintaining scripts to automate workflow tasks, especially under a Linux environment. Highly comfortable with Linux command-line and associated tools such as ssh, vim, grep/awk/sed, rsync, curl. 
+
+\item {\bf Platforms:} Experience developing for desktop, the Web and Android. Windows and Linux user, with MacOS experience.
+\end{itemize}
+
+\end{document}
