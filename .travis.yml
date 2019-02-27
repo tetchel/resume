@@ -1,8 +1,16 @@
+sudo: true
+
 cache:
     - apt
+
 before_install:
-    - sudo apt-get update -qq
-    - sudo apt-get install -y texlive texlive-latex-extra
+    - sudo apt-get update
+    - sudo apt-get install texlive texlive-latex-extra
+
 script:
-    - pdflatex ScottClarkResume.tex
-    - pdflatex ScottClarkCV.tex
+    - export filename="TimEtchellsCV.pdf"
+    
+    # make sure the pdf exists (so links aren't broken)
+    - test -f "$filename" && echo "$filename exists"
+    # make sure the current .tex is valid
+    - pdflatex -halt-on-error *.tex

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/tetchel/resume.svg?branch=master)](https://travis-ci.com/tetchel/resume)
+
 My resume in LaTeX.
 
 All credit to the original author [Scott Clark](https://github.com/sc932).
@@ -14,4 +16,11 @@ $ sudo apt-get install texlive texlive-latex-extra
 ```
 ***
 
-I (tetchel) have also added a bash script which will rebuild the pdf on any change to the source file. It depends on the [`inotify-tools`](https://github.com/rvoicilas/inotify-tools/wiki#getting-inotify-tools). Simply run `./watch.sh` and it will watch all `.tex` files.
+I (tetchel) have also added a bash script which will rebuild the pdf on any change to the source file. 
+
+```bash
+$ sudo apt-get install inotify-tools
+$ ./watch.sh
+```
+
+The PDF will be rebuilt on file change.
