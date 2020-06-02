@@ -5,12 +5,13 @@ cache:
 
 before_install:
     - sudo apt-get update
-    - sudo apt-get install texlive texlive-latex-extra
+    - sudo apt-get install texlive texlive-latex-extra texlive-generic-recommended
 
 script:
-    - export filename="TimEtchellsCV.pdf"
-    
+    - export infile="TimEtchellsCV.tex"
+    - export outfile="TimEtchellsCV.pdf"
+
     # make sure the pdf exists (so links aren't broken)
-    - test -f "$filename" && echo "$filename exists"
+    - test -f "$outfile" && echo "$outfile exists"
     # make sure the current .tex is valid
-    - pdflatex -halt-on-error *.tex
+    - pdflatex -halt-on-error $infile

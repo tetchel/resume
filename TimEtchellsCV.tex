@@ -15,6 +15,8 @@
 \usepackage{etoolbox}
 \usepackage{hyperref}
 \usepackage[normalem]{ulem}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
 \robustify\cftdotfill
 
 
@@ -25,36 +27,50 @@
 \definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
 \definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
 
-
 %-----------------------------------------------------------
 %Margin setup
 
-\setlength{\evensidemargin}{-0.25in}
-\setlength{\headheight}{0in}
+\setlength{\headheight}{14pt}
 \setlength{\headsep}{0in}
-\setlength{\oddsidemargin}{-0.25in}
+% \setlength{\evensidemargin}{-0.5in}
+\setlength{\oddsidemargin}{-0.5in}
 \setlength{\paperheight}{11in}
 \setlength{\paperwidth}{8.5in}
 \setlength{\tabcolsep}{0in}
-\setlength{\textheight}{9.5in}
-\setlength{\textwidth}{7in}
-\setlength{\topmargin}{-0.3in}
+\setlength{\textheight}{9.75in}
+\setlength{\textwidth}{7.5in}
+\setlength{\topmargin}{-0.75in}
 \setlength{\topskip}{0in}
 \setlength{\voffset}{0.1in}
+% \setlist[itemize, 1]{leftmargin=0in}
+% \setlist[itemize]{leftmargin=.5in}
+\setitemize{topsep=6pt, leftmargin=.25in}
 
+%-----------------------------------------------------------
+% Header & Footer
+\pagestyle{fancy}
+% disable header rule (horizontal line)
+\renewcommand{\headrulewidth}{0pt}
+% enable header rule
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\emph{\footnotesize{This resumé contains clickable links. View in your web browser for the full experience.}}}
+\cfoot{}
 
 %-----------------------------------------------------------
 %Custom commands
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{\vspace{8pt}
+\renewcommand{\labelitemi}{•}
+\renewcommand{\labelitemii}{◦}
+\renewcommand{\labelitemiii}{$\ast$}
+\newcommand{\resheading}[1]{\vspace{6pt}
   \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
     \begin{shaded}
-\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[7.25in][l]{\large #1} \vphantom{p\^{E}}}}}}
     \end{shaded}
   }\vspace{-5pt}
 }
 \newcommand{\ressubheading}[4]{
-\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+\begin{tabular*}{7.25in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
 		\textbf{#1} & #2 \\
 		\textit{#3} & \textit{#4} \\
 \end{tabular*}\vspace{-6pt}}
@@ -63,7 +79,7 @@
 
 \begin{document}
 
-\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+\begin{tabular*}{7.5in}{l@{\extracolsep{\fill}}r}
 \textbf{\Large Tim Etchells} & \textbf{\today} \\
 Software Developer & tetchel@gmail.com \\
 \uline{\href{https://github.com/tetchel}{https://github.com/tetchel}} & \uline{\href{https://www.linkedin.com/in/tim-etchells-a235b513b/}{LinkedIn}} \\
@@ -76,35 +92,38 @@ Software Developer & tetchel@gmail.com \\
 \begin{itemize}
 
  \item
-	\ressubheading{IBM - \uline{\href{https://microclimate-dev2ops.github.io}{Microclimate}}}{Toronto, ON}{Software Developer}{July 2018 - Present}
+	\ressubheading{IBM - \uline{\href{https://codewind.dev}{Codewind}}}{Toronto, ON}{Staff Software Developer}{July 2018 - Present}
 	\begin{itemize}
-    \resitem{Author of the \uline{\href{https://marketplace.visualstudio.com/items?itemName=IBM.microclimate-tools}{Microclimate Tools for Visual Studio Code}},
-      an open source extension that integrates with Microclimate to support easy containerized development and debugging.}
-
-    \resitem{Author of the VS Code extension's \uline{\href{https://microclimate-dev2ops.github.io/mdt-vsc-overview}{user documentation}} 
-      and \uline{\href{https://travis-ci.com/microclimate-dev2ops/microclimate-vscode-tools}{continous integration system}} for automating builds, tests, and publishes. }
-      
-    \resitem{Improved Microclimate's support for application debug, user experience and onboarding, documentation, and developer workflow automation features.}
+    \item{Author of \uline{\href{https://marketplace.visualstudio.com/items?itemName=IBM.codewind}{Codewind for VS Code}},\
+      an extension to facilitate cloud-native, containerized development.
+    }
+    \item{Responsible for a wide variety of duties including planning, designing, developing, testing, implementing continuous integration, publishing, writing documentation, and providing support to users.}
+    \item{See \uline{\href{https://github.com/eclipse/codewind-vscode}{https://github.com/eclipse/codewind-vscode}} for source code\
+      and \uline{\href{https://github.com/eclipse/codewind-vscode/pulls?q=is\%3Apr+author\%3Atetchel}{pull requests}}.\
+    }
+    \item{Also refer to \uline{\href{https://github.com/eclipse/codewind/issues?q=is\%3Aissue+author\%3Atetchel}{issues I opened}}, and\
+      \uline{\href{https://github.com/eclipse/codewind/issues?q=is\%3Aissue+commenter\%3Atetchel}{issues I participated in.}}
+    }
 	\end{itemize}
 
 \item
-	\ressubheading{IBM - WebSphere Developer Tools}{Toronto, ON}{Software Developer (Intern)}{May 2016 - Aug. 2017}
+	\ressubheading{IBM - WebSphere Developer Tools}{Toronto, ON}{Software Development Intern}{May 2016 - Aug. 2017}
 	\begin{itemize}
-    \resitem{Identified and fixed defects, usability enhancements, and automated test issues.}
-    \resitem{Designed and implemented a continuous-integration build system for the \uline{\href{https://github.com/OpenLiberty/open-liberty-tools}{OpenLibertyTools}}.}
+    \resitem{Identified and fixed defects, usability problems, and automated test issues.}
+    \resitem{Designed and implemented a continuous integration build system for the \uline{\href{https://github.com/OpenLiberty/open-liberty-tools}{OpenLibertyTools}}.}
 	\end{itemize}
 
 \item
-  \ressubheading{Personal Projects}{}{See my GitHub for more examples of my work.}{}
+  \ressubheading{Personal Projects}{}{Refer to my GitHub for more examples of my work.}{}
   \begin{itemize}
     \resitem{\uline{\href{https://github.com/tetchel/shexter}{shexter}} and \uline{\href{https://github.com/tetchel/shexter-client}{shexter-client}}
-      - Send and receive texts in your command-line using only your local network. Built with Android, Python. }
+      - Send and receive texts in your command-line using only your local area network. Built with Android (Java), Python. }
 
     \resitem{\uline{\href{https://github.com/nwam/fradio-server}{fradio}} and \uline{\href{https://github.com/tetchel/fradio-client}{fradio-client}}
-      - Syncronize your Spotify with your friends' to hear what they do in real time. Built with Flask, Android, MySQL. }
+      - Synchronize your Spotify with your friends' to hear the same music as they do, in real time. Built with Flask (Python), Android (Java), MySQL. }
 
     \resitem{\uline{\href{https://github.com/tetchel/slack-explorer}{slack-explorer}}
-      - Create a live, interactive network graph and other visualizations of your Slack workspace's channels and group messages. Built with TypeScript, Expressjs, Mongo. }
+      - Create a live, interactive network graph and other visualizations of your Slack workspace's channels and group messages. Built with TypeScript, Express.js, Mongo. }
   \end{itemize}
 \end{itemize}
 
@@ -113,10 +132,10 @@ Software Developer & tetchel@gmail.com \\
 \resheading{SKILLS}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
-  \item{\textbf{Languages:} Strong Java, TypeScript/JavaScript, Bash, Python. Intermediate C\#, html/css, SQL.}
-  \item{\textbf{Tools:} VS Code, Eclipse, Travis, git/GitHub, vim, Expressjs, Mochajs, JUnit, MySQL, Mongo. }
-  \item{\textbf{Runtimes and Platforms:} Node.js, Android, Linux, macOS, Docker, Kubernetes, Unity. }
-  \item{\textbf{Paradigms:} Cloud-native containerized development, open source, agile project management, continuous integration, workflow automation, developer-first tooling. }
+  \item{\textbf{Languages:} Strong TypeScript/JavaScript, Java, Bash. Intermediate Python, C\#, HTML/CSS, SQL.}
+  \item{\textbf{Tools:} VS Code, Eclipse, git/GitHub, npm, Travis, Jenkins, Express.js, Mocha.js, JUnit, webpack.}
+  \item{\textbf{Runtimes \& Platforms:} Node.js, Android, Docker, Kubernetes, Unity, Linux, macOS, Windows.}
+  \item{\textbf{Paradigms:} Backend development, IDE extensions, REST, open source, agile project management, continuous integration, test automation, workflow automation.}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,11 +145,14 @@ Software Developer & tetchel@gmail.com \\
 
 \item
 
-  \ressubheading{Western University}{London, ON}{B.Sc. Honors Specialization Computer Science}{April 2018}
+  \ressubheading{Western University}{London, ON}{Bachelor of Science}{April 2018}
   \begin{itemize}
-      \resitem{Minor in Software Engineering}
-      \resitem{3.9 GPA in Computer Science and Math courses}
-      \resitem{Dean's Honor List last three years of study}
+      \item{Honors Specialization in Computer Science, Minor in Software Engineering}
+      % \begin{itemize}
+        \item Together, this specialization and minor are {\uline{\href{https://www.westerncalendar.uwo.ca/Archive/2017/2017/pg655.html}{accredited by CSAC}}} as a Software Engineering degree.
+      % \end{itemize}
+      \item{3.9 GPA in Computer Science and Math courses}
+      \item{Dean's Honor List last three years of study}
 	\end{itemize}
 
 \end{itemize}
