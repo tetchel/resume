@@ -14,13 +14,3 @@ Ubuntu requirements:
 ```bash
 $ sudo apt-get install texlive texlive-latex-extra
 ```
-***
-
-I (tetchel) have also added a bash script which will rebuild the pdf on any change to the source file. 
-
-```bash
-$ sudo apt-get install inotify-tools
-$ ./watch.sh
-```
-
-The PDF will be rebuilt on file change.
