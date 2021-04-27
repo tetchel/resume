@@ -1,16 +1,22 @@
-[![Build Status](https://travis-ci.com/tetchel/resume.svg?branch=master)](https://travis-ci.com/tetchel/resume)
+## [**Click to Download**](https://github.com/tetchel/resume/raw/master/TimEtchellsCV.pdf)
 
-My resume in LaTeX.
+<hr>
 
 All credit to the original author [Scott Clark](https://github.com/sc932).
 
-In linux run
-```bash
-$ pdflatex resumeName.tex
-```
-This should result in the creation of ``resumeName.pdf``
+### Building
 
-Ubuntu requirements:
+```bash
+$ pdflatex <name>.tex
+```
+This will create `<name>.pdf`
+
+<hr>
+
+### Ubuntu requirements:
 ```bash
 $ sudo apt-get install texlive texlive-latex-extra
 ```
+
+### Fedora requirements:
+https://unix.stackexchange.com/a/379805
