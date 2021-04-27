@@ -9,6 +9,7 @@ env:
 
 jobs:
   ci:
+    name: Build and test
     runs-on: ubuntu-20.04
 
     defaults:
@@ -19,27 +20,12 @@ jobs:
       - name: Install latex libraries
         run: |
           sudo apt-get update
-          sudo apt-get install texlive texlive-latex-extra texlive-generic-recommended
+          sudo apt-get install texlive texlive-latex-extra texlive-xetex
+
+      - uses: actions/checkout@v2
 
       - name: Test pdf exists
         run: test -f ${{ env.PDF_NAME }}
 
-      - name: Get existing pdf sha
-        run: |
-          set -ex
-          export PDF_SHA=$(shasum ${{ env.PDF_NAME }} | cut -d' ' -f1)
-          echo PDF_SHA=${PDF_SHA} | tee >> $GITHUB_ENV
-
       - name: Build pdf
         run: pdflatex -halt-on-error ${{ env.TEX_NAME }}
-
-      - name: Get new pdf sha
-        run:
-          set -ex
-          export NEW_PDF_SHA=$(shasum ${{ env.PDF_NAME }} | cut -d' ' -f1)
-          echo NEW_PDF_SHA=${NEW_PDF_SHA} | tee >> $GITHUB_ENV
-
-      - name: Test shas match
-        run: |
-          set -ex
-          [[ $NEW_PDF_SHA == $PDF_SHA ]]
